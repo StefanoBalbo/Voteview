@@ -3,7 +3,7 @@
 rm(list=ls())
 
 getwd()
-directorio <- "/Users/stefa/Documents/Code/Voteview/" # Definimos Workspace
+directorio <- "/Users/IDECOR/Documents/Code/Voteview/" # Definimos Workspace
 setwd(directorio)
 dir.create("Graphs")
 
@@ -131,7 +131,6 @@ rc_durV <- voteview_download(res_durV$id)
   cons2_postV <- rc_postV$legis.long.dynamic[which.max(rc_postV$legis.data$dim2), c("name", "icpsr")]
   defIdeal_postV <- wnominate(rc_postV,
                                 polarity = list("icpsr", c(cons1_postV$icpsr, cons2_postV$icpsr)))
-  
 }
 
 summary(rc_preV)
@@ -142,7 +141,6 @@ cons1_postV; cons2_postV # Extremos post Vietnam
 
 
 # Crear las etiquetas de nombres de partidos y graficar #
-
 {
   defIdeal_preV$legislators$partyName <- ifelse(defIdeal_preV$legislators$party == 200, "Republican",ifelse(defIdeal_preV$legislators$party == 100, "Democrat", "Independent"))
   graph_preV <- ggplot(defIdeal_preV$legislators,aes(x=coord1D, y=coord2D, color=partyName, label=state_abbrev)) +  geom_text() + scale_color_manual("Party", values = c("Republican" = "red","Democrat" = "blue","Independent" = "darkgreen")) + theme_bw() + labs(x = "Economics", y = "Social", title = "Previo a la Guerra de Vietnam")
