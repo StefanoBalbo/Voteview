@@ -3,33 +3,41 @@
 rm(list=ls())
 
 getwd()
-directorio <- "/Users/stefa/Documents/Code/Voteview/"
+directorio <- "/Users/stefa/Documents/Code/Voteview/" # Definimos Workspace
 setwd(directorio)
 dir.create("Graphs")
 
 ##############################################################################################################
 
-# Paquetes #
-install.packages('wnominate','devtools')
+# Librerías #
+
+install.packages('wnominate','devtools', 'ggplot2', 'dplyr', 'pscl')
+
+devtools::install_github("voteview/Rvoteview", force = TRUE)
+
 library(ggplot2)
 library(devtools)
-devtools::install_github("voteview/Rvoteview", force = TRUE)
+library(dplyr)
 library(Rvoteview)
 library(pscl)
 library(wnominate)
 
 ##############################################################################################################
-########## IMPACTOS GUERRAS SOBRE VOTOS LEGISLATIVOS #########################################################
+############################ IMPACTOS DE GUERRAS SOBRE VOTOS LEGISLATIVOS ####################################
 ##############################################################################################################
+# Filter: Foreign and Defense Policy support #################################################################
 
-## SEGUNDA GUERRA MUNDIAL ####################################################################################
+
+## 1939 - 1945: SEGUNDA GUERRA MUNDIAL #######################################################################
+## 1944: Acuerdo de Bretton Woods ############################################################################
+## 1948: Estado de Israel. Respaldo de GB y EEUU. Comienza el conflicto árabe-israelí.########################
 
 # Puntos ideales #
 {
 print("tranqui tarda un poco, prepara el mate")
-res_pre2GM <- voteview_search("codes.Clausen:Foreign and Defense Policy support:[15 to 85]",startdate = "1946-01-20", enddate = "1950-01-20")
-res_post2GM <- voteview_search("codes.Clausen:Foreign and Defense Policy support:[15 to 85]",startdate = "1935-01-20", enddate = "1939-01-20")
+res_pre2GM <- voteview_search("codes.Clausen:Foreign and Defense Policy support:[15 to 85]",startdate = "1935-01-20", enddate = "1939-01-20")
 res_dur2GM <- voteview_search("codes.Clausen:Foreign and Defense Policy support:[15 to 85]",startdate = "1940-01-20", enddate = "1945-01-20")
+res_post2GM <- voteview_search("codes.Clausen:Foreign and Defense Policy support:[15 to 85]",startdate = "1946-01-20", enddate = "1950-01-20")
 
 rc_pre2GM <- voteview_download(res_pre2GM$id)
 rc_post2GM <- voteview_download(res_post2GM$id)
@@ -82,9 +90,20 @@ graph_post2GM <- ggplot(defIdeal_post2GM$legislators,aes(x=coord1D, y=coord2D, c
 ggsave(filename = "Graphs/post_2GM.jpg", plot = graph_post2GM, width = 6, height = 4)
 }
 
+graph_pre2GM
+graph_dur2GM
+graph_post2GM
+
 rm(list=ls())
 
-## GUERRA DE VIETNAM #######################################################################################
+
+## GUERRA DE VIETNAM: EE.UU ingresa en 1965 ################################################################
+## Contexto de Guerra Fría: EEUU vs URSS. Carrera económica, espacial y armamentística #####################
+## Continúa el conflicto árabe-israelí #####################################################################
+## 1961: Construcción Muro de Berlín #######################################################################
+## 1963: Asesinato de John F. Kennedy ######################################################################
+## 1966: Comienza la revolución cultural en China ##########################################################
+## 1969: Llegada a la Luna #################################################################################
 
 # Puntos ideales #
 {
@@ -138,9 +157,18 @@ cons1_postV; cons2_postV # Extremos post Vietnam
   ggsave(filename = "Graphs/post_V.jpg", plot = graph_postV, width = 6, height = 4)
 }
 
+graph_preV
+graph_durV
+graph_postV
+
 rm(list=ls())
 
+
 ## INVASION DE AFGANISTAN (2001) #############################################################################
+## 1998: atentados en las embajadas de EEUU en Tanzania y Kenia ##############################################
+## 2000: bomba en Yemen contra intereses de EEUU.#############################################################
+## 2001: Ataque a las Torres Gemelas #########################################################################
+## 2003: Invasión de Irak ####################################################################################
 
 # Puntos ideales #
 {
@@ -181,6 +209,9 @@ cons1_postA; cons2_postA # Extremos post Afganistan
   graph_postA <- ggplot(defIdeal_postA$legislators,aes(x=coord1D, y=coord2D, color=partyName, label=state_abbrev)) +  geom_text() + scale_color_manual("Party", values = c("Republican" = "red","Democrat" = "blue","Independent" = "darkgreen")) + theme_bw() + labs(x = "Economics", y = "Social", title = "Luego de la invasión de Afganistan")
   ggsave(filename = "Graphs/post_A.jpg", plot = graph_postA, width = 6, height = 4)
 }
+
+graph_preA
+graph_postA
 
 rm(list=ls())
 
