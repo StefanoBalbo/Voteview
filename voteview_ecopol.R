@@ -11,7 +11,7 @@ dir.create("Graphs")
 
 # Librerías #
 
-install.packages('wnominate','devtools', 'ggplot2', 'dplyr', 'pscl')
+# install.packages('wnominate','devtools', 'ggplot2', 'dplyr', 'pscl')
 
 devtools::install_github("voteview/Rvoteview", force = TRUE)
 
@@ -25,7 +25,10 @@ library(wnominate)
 ##############################################################################################################
 ############################ IMPACTOS DE GUERRAS SOBRE VOTOS LEGISLATIVOS ####################################
 ##############################################################################################################
-# Filter: Foreign and Defense Policy support #################################################################
+#  5.  Foreign and Defense Policy 
+#International policy; foreign aid; aid to international 
+#organizations; armament policy; defense procurement; international 
+#trade; military pensions; etc. 
 
 
 ## 1939 - 1945: SEGUNDA GUERRA MUNDIAL #######################################################################
@@ -74,6 +77,7 @@ cons1_dur2GM; cons2_dur2GM # Extremos durante 2GM
 cons1_post2GM; cons2_post2GM # Extremos post 2GM
 
 
+# dim1 = economics // dim2 = social
 # Crear las etiquetas de nombres de partidos y graficar #
 
 {
@@ -217,14 +221,59 @@ rm(list=ls())
 ##############################################################################################################
 ##############################################################################################################
 
+# Testing OTHER CLAUSEN CATEGORIES
+
+#  1.  Government Management 
+#Environmental control; government regulation of business; 
+#natural resource management; government ownership of business; 
+#government control of the economy; budget balancing; tax policy; 
+#interest rates; management of the bureaucracy; etc.
+
+res1 <- voteview_search("codes.Clausen:Government Management support:[15 to 85]",startdate = "1940-01-20", enddate = "1950-01-20")
+rc1 <- voteview_download(res1$id)
+
+cons1 <- rc1$legis.long.dynamic[which.max(rc1$legis.data$dim1), c("name", "icpsr")]
+cons2 <- rc1$legis.long.dynamic[which.max(rc1$legis.data$dim2), c("name", "icpsr")]
+defIdeal <- wnominate(rc1,
+                           polarity = list("icpsr", c(cons1$icpsr, cons2$icpsr)))
+
+defIdeal$legislators$partyName <- ifelse(defIdeal$legislators$party == 200, "Republican",ifelse(defIdeal$legislators$party == 100, "Democrat", "Independent"))
+ggplot(defIdeal$legislators,aes(x=coord1D, y=coord2D, color=partyName, label=state_abbrev)) +  geom_text() + scale_color_manual("Party", values = c("Republican" = "red","Democrat" = "blue","Independent" = "darkgreen")) + theme_bw() + labs(x = "Economics", y = "Social")
 
 
 
+#  2.  Social Welfare 
+#Social security; public housing; urban renewal; labor 
+#regulation; education; urban affairs; employment opportunities and 
+#rewards; welfare; medicare; unemployment; minimum wage; legal 
+#services; immigration, etc. 
+
+res2 <- voteview_search("codes.Clausen:Social Welfare support:[15 to 85]",startdate = "1935-01-20", enddate = "2008-01-20")
+rc2 <- voteview_download(res2$id)
 
 
+#  3.  Agriculture 
+#Price supports and subsidies; commodity control; acreage 
+#limitations; etc. 
+
+res3 <- voteview_search("codes.Clausen:Agriculture support:[15 to 85]",startdate = "1935-01-20", enddate = "2008-01-20")
+rc3 <- voteview_download(res3$id)
 
 
+#  4.  Civil Liberties 
+#Civil rights; equality; criminal procedure; privacy; 
+#guarantees of the Bill of Rights; slavery; Hatch Act; etc. 
 
+res4 <- voteview_search("codes.Clausen:Civil Liberties support:[15 to 85]",startdate = "1935-01-20", enddate = "2008-01-20")
+rc4 <- voteview_download(res4$id)
+
+
+#  6.  Miscellaneous Policy 
+#Unclassifiable or unidentifiable votes; all votes concerned 
+#with internal organization of Congress; procedural motions. 
+
+res6 <- voteview_search("codes.Clausen:Miscellaneous Policy support:[15 to 85]",startdate = "1935-01-20", enddate = "2008-01-20")
+rc6 <- voteview_download(res6$id)
 
 
 
