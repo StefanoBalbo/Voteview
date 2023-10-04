@@ -241,7 +241,6 @@ defIdeal$legislators$partyName <- ifelse(defIdeal$legislators$party == 200, "Rep
 ggplot(defIdeal$legislators,aes(x=coord1D, y=coord2D, color=partyName, label=state_abbrev)) +  geom_text() + scale_color_manual("Party", values = c("Republican" = "red","Democrat" = "blue","Independent" = "darkgreen")) + theme_bw() + labs(x = "Economics", y = "Social")
 
 
-
 #  2.  Social Welfare 
 #Social security; public housing; urban renewal; labor 
 #regulation; education; urban affairs; employment opportunities and 
