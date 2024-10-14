@@ -3,7 +3,7 @@
 rm(list=ls())
 
 getwd()
-directorio <- "/Users/IDECOR/Documents/Code/Voteview/" # Definimos Workspace
+directorio <- "/Users/stefa/Documents/Code/Voteview/" # Definimos Workspace
 setwd(directorio)
 dir.create("Graphs")
 
