@@ -1,5 +1,5 @@
 # Voteview_Plots
- Sharing with Political Economy students some results and opportunities offered by the analysis of the voteview.com database. 
+ Sharing with Political Economy students some results and opportunities offered by the analysis of the voteview.com database. https://sfreille.github.io/teaching/epol
  ----------------------------------------------------------------------------------------------------------------------------
 Our main purpose was to illustrate how the preferences of U.S. legislators, including Democrats, Republicans, and Independents, have evolved in response to significant historical events, leading to situations of political polarization. To achieve this, we focused on a select set of relevant wars and evaluated their votes on defense laws, specifically in the category of "Foreign and Defense Policy support," analyzing their preferences in periods that encompassed before, during, and even after each armed conflict. 
 
