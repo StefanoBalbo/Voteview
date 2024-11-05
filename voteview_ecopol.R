@@ -27,6 +27,8 @@ library(wnominate)
 ############################ IMPACTOS DE GUERRAS SOBRE VOTOS LEGISLATIVOS EN DEFENSA ####################################
 ##############################################################################################################
 
+# https://voteview.com/articles/issue_codes
+
 # Clausen cateogry we're choosing:
 #  5.  Foreign and Defense Policy   
 #International policy; foreign aid; aid to international 
