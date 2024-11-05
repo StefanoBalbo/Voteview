@@ -1,5 +1,4 @@
-# Voteview & Polarización - Cátedra de Economía Política de la Facultad de Ciencias Económicas de la Universidad Nacional de Córdoba #
- Sharing with Political Economy students some results and opportunities offered by the analysis of the voteview.com database.
+# Voteview.com & Polarización - Cátedra de Economía Política de la Facultad de Ciencias Económicas de la Universidad Nacional de Córdoba #
  Repositorio dedicado a la cátedra de Economía Política de la Facultad de Ciencias Económicas de la Universidad Nacional de Córdoba.
  https://sfreille.github.io/teaching/epol
  ----------------------------------------------------------------------------------------------------------------------------
