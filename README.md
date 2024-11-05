@@ -1,5 +1,7 @@
-# Repositorio dedicado a la cátedra de Economía Política de la Facultad de Ciencias Económicas de la Universidad Nacional de Córdoba #
- Sharing with Political Economy students some results and opportunities offered by the analysis of the voteview.com database. https://sfreille.github.io/teaching/epol
+# Voteview & Polarización - Cátedra de Economía Política de la Facultad de Ciencias Económicas de la Universidad Nacional de Córdoba #
+ Sharing with Political Economy students some results and opportunities offered by the analysis of the voteview.com database.
+ Repositorio dedicado a la cátedra de Economía Política de la Facultad de Ciencias Económicas de la Universidad Nacional de Córdoba.
+ https://sfreille.github.io/teaching/epol
  ----------------------------------------------------------------------------------------------------------------------------
 Our primary goal was to demonstrate how the voting preferences of U.S. legislators (Democrats, Republicans, Independents) have shifted over time particularly in response to major historical events, contributing to periods of political polarization. We examined legislative votes on key defense policies related to "Foreign and Defense Policy support" Clausen category, focusing on periods before, during and after notable conflicts. We visualized each legislator's ideological position, represented by their proximity on a two-dim liberal-conservative spectrum.
 
