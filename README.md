@@ -14,3 +14,6 @@ Historical events considered:
 World War II
 Vietnam War
 Afghanistan Invasion
+
+ ----------------------------------------------------------------------------------------------------------------------------
+Collaborators: @sfreille @rfhfmnn
