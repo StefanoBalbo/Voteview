@@ -1,4 +1,4 @@
-# Voteview.com & Polarización - Economía Política, FCE UNC #
+# Voteview.com - Economía Política, FCE UNC #
  Repositorio dedicado a la cátedra de Economía Política de la Facultad de Ciencias Económicas de la Universidad Nacional de Córdoba.
  https://sfreille.github.io/teaching/epol
  ----------------------------------------------------------------------------------------------------------------------------
